@@ -1,0 +1,77 @@
+{
+  "name": "@mostajs/init",
+  "version": "1.0.0",
+  "description": "CLI & codegen tool — discover @mostajs modules, generate routes, pages, DAL registry, and configuration reports",
+  "author": "Dr Hamid MADANI <drmdh@msn.com>",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mostajs-init": "dist/cli/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./lib/discover": {
+      "types": "./dist/lib/discover.d.ts",
+      "import": "./dist/lib/discover.js",
+      "default": "./dist/lib/discover.js"
+    },
+    "./lib/analyze": {
+      "types": "./dist/lib/analyze.d.ts",
+      "import": "./dist/lib/analyze.js",
+      "default": "./dist/lib/analyze.js"
+    },
+    "./lib/codegen": {
+      "types": "./dist/lib/codegen.d.ts",
+      "import": "./dist/lib/codegen.js",
+      "default": "./dist/lib/codegen.js"
+    },
+    "./lib/reporter": {
+      "types": "./dist/lib/reporter.d.ts",
+      "import": "./dist/lib/reporter.js",
+      "default": "./dist/lib/reporter.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js",
+      "default": "./dist/types/index.js"
+    },
+    "./components/SchemaDesigner": {
+      "types": "./dist/components/SchemaDesigner.d.ts",
+      "import": "./dist/components/SchemaDesigner.js",
+      "default": "./dist/components/SchemaDesigner.js"
+    },
+    "./components/PageDesigner": {
+      "types": "./dist/components/PageDesigner.d.ts",
+      "import": "./dist/components/PageDesigner.js",
+      "default": "./dist/components/PageDesigner.js"
+    }
+  },
+  "files": ["dist", "templates", "LICENSE", "README.md"],
+  "keywords": ["cli", "codegen", "scaffolding", "init", "setup", "nextjs", "mosta"],
+  "repository": { "type": "git", "url": "https://github.com/apolocine/mosta-init" },
+  "homepage": "https://mostajs.dev/packages/init",
+  "engines": { "node": ">=18.0.0" },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true }
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0",
+    "typescript": "^5.6.0"
+  }
+}
