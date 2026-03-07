@@ -52,23 +52,47 @@
       "default": "./dist/components/PageDesigner.js"
     }
   },
-  "files": ["dist", "templates", "LICENSE", "README.md"],
-  "keywords": ["cli", "codegen", "scaffolding", "init", "setup", "nextjs", "mosta"],
-  "repository": { "type": "git", "url": "https://github.com/apolocine/mosta-init" },
+  "files": [
+    "dist",
+    "templates",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "cli",
+    "codegen",
+    "scaffolding",
+    "init",
+    "setup",
+    "nextjs",
+    "mosta"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apolocine/mosta-init"
+  },
   "homepage": "https://mostajs.dev/packages/init",
-  "engines": { "node": ">=18.0.0" },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "dependencies": {},
   "peerDependencies": {
+    "@mostajs/menu": ">=1.0.2",
     "react": ">=18"
   },
   "peerDependenciesMeta": {
-    "react": { "optional": true }
+    "react": {
+      "optional": true
+    },
+    "@mostajs/menu": {
+      "optional": true
+    }
   },
   "devDependencies": {
+    "@mostajs/menu": "^1.0.2",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "react": "^19.0.0",

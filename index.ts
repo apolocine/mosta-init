@@ -17,6 +17,9 @@ export { reverseEngineerMongo, reverseEngineerSQL, reverseEngineerFromModules } 
 // CRUD generator
 export { entityToCrudConfig, generateCrud } from './lib/crud-generator.js'
 
+// Menu contribution
+export { initMenuContribution } from './lib/menu.js'
+
 // Types
 export type {
   ModuleInfo,
