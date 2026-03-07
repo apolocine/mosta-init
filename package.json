@@ -50,6 +50,11 @@
       "types": "./dist/components/PageDesigner.d.ts",
       "import": "./dist/components/PageDesigner.js",
       "default": "./dist/components/PageDesigner.js"
+    },
+    "./lib/menu": {
+      "types": "./dist/lib/menu.d.ts",
+      "import": "./dist/lib/menu.js",
+      "default": "./dist/lib/menu.js"
     }
   },
   "files": [
