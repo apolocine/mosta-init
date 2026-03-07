@@ -160,6 +160,74 @@ export default function PageDesignerPage() {
 | `onChange` | `(page) => void` | Called when page config changes |
 | `onExport` | `(code: string) => void` | Called when user clicks Export |
 
+## Integration dans le projet hote
+
+Ce module exporte des **composants React** (SchemaDesigner, PageDesigner) et une **contribution menu**, mais ne cree pas de pages Next.js.
+Le projet hote doit creer les pages correspondant aux routes declarees dans le menu (`initMenuContribution`).
+
+### 1. Pages a creer
+
+Creez les fichiers suivants dans votre projet Next.js :
+
+**`src/app/dashboard/dev/schema-designer/page.tsx`**
+```tsx
+'use client'
+import SchemaDesigner from '@mostajs/init/components/SchemaDesigner'
+
+export default function SchemaDesignerPage() {
+  return (
+    <div className="space-y-6">
+      <h1 className="text-2xl font-bold">Schema Designer</h1>
+      <div style={{ height: 'calc(100vh - 200px)' }}>
+        <SchemaDesigner
+          initial={[]}
+          onChange={(entities) => console.log('Schema:', entities)}
+          onExport={(code) => navigator.clipboard.writeText(code)}
+        />
+      </div>
+    </div>
+  )
+}
+```
+
+**`src/app/dashboard/dev/page-designer/page.tsx`**
+```tsx
+'use client'
+import PageDesigner from '@mostajs/init/components/PageDesigner'
+
+export default function PageDesignerPage() {
+  return (
+    <div className="space-y-6">
+      <h1 className="text-2xl font-bold">Page Designer</h1>
+      <div style={{ height: 'calc(100vh - 200px)' }}>
+        <PageDesigner
+          entities={[]}
+          onChange={(page) => console.log('Page:', page)}
+          onExport={(code) => navigator.clipboard.writeText(code)}
+        />
+      </div>
+    </div>
+  )
+}
+```
+
+### 2. Menu dynamique
+
+Le module exporte `initMenuContribution` qui declare les 2 routes ci-dessus sous le groupe "Developpement".
+Importez-le dans votre sidebar via le deep import :
+
+```tsx
+import { initMenuContribution } from '@mostajs/init/lib/menu'
+```
+
+Passez-le a `buildMenuConfig()` de `@mostajs/menu` avec les autres contributions de modules.
+
+### 3. Pourquoi le projet hote doit creer les pages ?
+
+Les modules `@mostajs/*` sont des **bibliotheques npm** (composants, hooks, utilitaires), pas des applications.
+Next.js App Router exige que les fichiers `page.tsx` soient dans le dossier `src/app/` du projet.
+Un package npm ne peut pas injecter de pages dans le routeur — c'est donc au projet hote de creer ces fichiers wrapper, meme s'ils ne font qu'importer et afficher un composant du module.
+
 ## Reverse Engineering API
 
 Use programmatically for database introspection:
