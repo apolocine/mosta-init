@@ -1,6 +1,6 @@
 {
   "name": "@mostajs/init",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI & codegen tool — discover @mostajs modules, generate routes, pages, DAL registry, and configuration reports",
   "author": "Dr Hamid MADANI <drmdh@msn.com>",
   "license": "MIT",
