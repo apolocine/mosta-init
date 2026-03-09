@@ -1,0 +1,11 @@
+{
+  "_doc": "Manifeste de câblage pour @mostajs/init",
+  "package": "@mostajs/init",
+  "version": "1.0.3",
+  "type": "functional",
+
+  "menu": {
+    "name": "initMenuContribution",
+    "from": "@mostajs/init/lib/menu"
+  }
+}
